@@ -8,6 +8,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.logout;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -81,6 +82,14 @@ class SecurityTest {
     void loginAdminValide() throws Exception {
         mockMvc.perform(formLogin("/login").user("admin").password("1234"))
                 .andExpect(authenticated().withUsername("admin").withRoles("ADMIN", "USER"));
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void logoutRedirigeVersLogin() throws Exception {
+        mockMvc.perform(logout())
+                .andExpect(unauthenticated())
+                .andExpect(redirectedUrl("/login?logout"));
     }
 
     @Test

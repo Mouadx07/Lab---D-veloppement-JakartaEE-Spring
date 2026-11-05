@@ -1,0 +1,106 @@
+# =========================================================
+#  .gitignore for the whole repo (applies to every tpX/ folder)
+# =========================================================
+
+### Maven ###
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/.develocity/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+### Gradle ###
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Spring Boot ###
+HELP.md
+*.log
+logs/
+spring-shell.log
+
+### Java ###
+*.class
+hs_err_pid*
+replay_pid*
+*.ctxt
+
+### Local databases (H2, SQLite...) ###
+*.db
+*.mv.db
+*.trace.db
+*.lock.db
+*.sqlite
+
+### Secrets / local config ###
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Node / front-end (React, Angular, Vite...) ###
+node_modules/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.angular/
+.next/
+coverage/
+
+### OS files ###
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+### Misc ###
+*.tmp
+*.bak
+*.swp
+*~
